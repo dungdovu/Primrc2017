@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.6.6)  11 JUN 2017 11:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.6.6)  11 JUN 2017 15:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -200,14 +200,35 @@ Package: subfig 2005/06/28 ver: 1.3 subfig package
 \sf@nearskip=\skip46
 \sf@top=\skip47
 \sf@bottom=\skip48
-) (./primrc.aux
-
-LaTeX Warning: Label `fig2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig2' multiply defined.
-
 )
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count99
+\float@exts=\toks16
+\float@box=\box28
+\@float@everytoks=\toks17
+\@floatcapt=\box29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks18
+\c@algorithm=\count100
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count101
+\c@ALC@line=\count102
+\c@ALC@rem=\count103
+\c@ALC@depth=\count104
+\ALC@tlm=\skip49
+\algorithmicindent=\skip50
+)
+(./primrc.aux)
 \openout1 = `primrc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 331.
@@ -226,17 +247,17 @@ LaTeX Font Info:    ... okay on input line 331.
 -- Lines per column: 58 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count99
+\scratchcounter=\count105
 \scratchdimen=\dimen136
-\scratchbox=\box28
-\nofMPsegments=\count100
-\nofMParguments=\count101
-\everyMPshowfont=\toks16
-\MPscratchCnt=\count102
+\scratchbox=\box30
+\nofMPsegments=\count106
+\nofMParguments=\count107
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count108
 \MPscratchDim=\dimen137
-\MPnumerator=\count103
-\makeMPintoPDFobject=\count104
-\everyMPtoPDFconversion=\toks17
+\MPnumerator=\count109
+\makeMPintoPDFobject=\count110
+\everyMPtoPDFconversion=\toks20
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -287,6 +308,7 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 394.
 
@@ -322,17 +344,33 @@ File: images/overview3.png Graphic file (type png)
 Package pdftex.def Info: images/overview3.png used on input line 445.
 (pdftex.def)             Requested size: 142.26378pt x 118.89293pt.
 
+<images/Model1-2.png, id=13, 680.5425pt x 410.53375pt>
+File: images/Model1-2.png Graphic file (type png)
 
-LaTeX Warning: Reference `Philadelphia' on page 2 undefined on input line 457.
+<use images/Model1-2.png>
+Package pdftex.def Info: images/Model1-2.png used on input line 482.
+(pdftex.def)             Requested size: 227.62204pt x 137.31197pt.
+ [2 <./overview1.png> <./images/overview3.png>]
 
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 496.
 
-LaTeX Warning: Reference `overview2' on page 2 undefined on input line 473.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 500.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8.03> on input line 500.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.62097> on input line 500.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <4.015> on input line 500.
 
-[2 <./overview1.png> <./images/overview3.png>]
+Overfull \hbox (2.04958pt too wide) in paragraph at lines 500--524
+ [][] 
+ []
+
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-
+[3 <./images/Model1-2.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -344,32 +382,34 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3] (./primrc.aux)
+[4
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+] (./primrc.aux) ) 
 Here is how much of TeX's memory you used:
- 3726 strings out of 493029
- 62821 string characters out of 6136235
- 133608 words of memory out of 5000000
- 7240 multiletter control sequences out of 15000+600000
- 40064 words of font info for 70 fonts, out of 8000000 for 9000
+ 4036 strings out of 493029
+ 66733 string characters out of 6136235
+ 140059 words of memory out of 5000000
+ 7529 multiletter control sequences out of 15000+600000
+ 41887 words of font info for 76 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 42i,7n,46p,2459b,400s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
-/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on primrc.pdf (3 pages, 720015 bytes).
+ 42i,15n,46p,2459b,608s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/times/utmri8a.pfb>
+Output written on primrc.pdf (4 pages, 809789 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 77 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

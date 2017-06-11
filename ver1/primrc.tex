@@ -327,7 +327,7 @@
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
- 
+\usepackage{algorithm,algorithmic}
 \begin{document}
 %
 % paper title
@@ -347,7 +347,7 @@
     \\ \'Ecole de Technologie Sup\'erieure (ETS)
     \\Montr\'eal, Quebec, Canada.
     \\
-Email: do-dung.vn.1@ens.etmstl.ca}
+Email: do-dung.vu.1@ens.etmstl.ca}
 \and
  
 \IEEEauthorblockN{Georges Kaddoum}
@@ -438,15 +438,16 @@ This paper presents a new method of smart waste city management to provide a cle
 	\centering
 	\parbox{5cm}{
 		\includegraphics[width=5cm]{overview1}
-		\subcaption{First.}
-		\label{fig2}}
+		\subcaption{The whole distribution of trash bin in Philadelphia}
+		\label{fig1a}}
 	\qquad
 	\begin{minipage}{5cm}
 		\includegraphics[width=5cm]{overview3}
-		\subcaption{Second.}
-		\label{fig2}
+		\subcaption{A part of distribution trash bin in Philadelphia}
+		\label{fig1b}
 	\end{minipage}
-\caption{a}
+\caption{Philadelphia trash bin}
+\label{Philadelphia}
 \end{figure}
  
 \section{IoT-Based Smart waste city management model}
@@ -470,20 +471,85 @@ In this section, we describe how to collect waste meta data associated with thei
 \subsection{System description}
 \label{systemdesciption}
 \subsubsection{The overview of functionality}
-The proposed system is based on the waste status of each trash bin in the city. The data collected by sensors is sent over the Internet to the server where it is stored and processed. The collected data is used for monitoring and predicting the status of each bin daily. After that, they will be utilized for calculating the optimal garbage truck routes accordingly. Every day, the system sends the newly calculated routes to the workers based on the waste status, traffic congestion, the state of the forecast, and the balanced cost-efficiency functions. Since the limitation of our data, our optimal garbage truck routes is constructed based on the waste status of each bin.  The prediction status of bin can be analyzed based on the given training data before it occurs. The system overview is shown in the Figure\ref{overview2}.
+
+
+
+The proposed system is based on the waste status of each trash bin in the city. The data collected by sensors is sent over the Internet to the server where it is stored and processed. The collected data is used for monitoring and predicting the status of each bin daily. After that, they will be utilized for calculating the optimal garbage truck routes accordingly. Every day, the system sends the newly calculated routes to the workers based on the waste status, traffic congestion, the state of the forecast, and the balanced cost-efficiency functions. Since the limitation of our data, our optimal garbage truck routes is constructed based on the waste status of each bin.  The prediction status of bin can be analyzed based on the given training data before it occurs. The system overview is shown in the Figure \ref{fig2}.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=8cm]{Model1-2}
+	\caption{The smart waste management system overview}
+	\label{fig2}
+\end{figure}
 
 
 
 
+\subsubsection{Data processing and classifications}
+The status of each bin is generally not homogeneous and significantly differs from each other according to the sate of each location. In this section, we introduce an algorithm that can be used to dynamically and efficiently manage waste collection strategies.
+\par K-means \cite{Kanungo2003} is an unsupervised machine learning algorithm that groups a dataset into a user-specified number (k) of clusters. We use it to make the working cluster of each garbage truck. However, this algorithm is somewhat naive, it clusters the data into k clusters, even if k is not the right number of clusters to use. Therefore, when using k-means clustering, users need some way to determine whether they are using the right number of clusters. In this paper, we use Elbow method \cite{Kodinariya2013} to validate the number of clusters. The collecting routes are the travelling cycles containing a given set of trash bins. The optimization of these cycles is a combinatorial optimization problem. When the objective function of this optimization is to minimize the driving distance. By considering the large number of routes, we use Genetic algorithm (GA) \cite{Gutierrez2008} which are relatively fast in providing near optimal solutions. Since the garbage truck needs time to collect every trash bin, it is very delightful if a status of trash bin can be predicted. Hence, after predicting, the system will recommend which one should be collected to prevent the overload case. In this paper, we use the Linear regression algorithm (LR) \cite{Ferraro2010} to predict the status of each trash bin based on the historical data with a certain confident.
+
+\par  The overall procedure is summarized in Algorithm \ref{algorithm1}. In this algorithm, the parameters are defined in Table \ref{table1}. We suppose that the input dataset $\mathcal{D}$ is the database in \ref{dataacquisition}. The parameter $\eta$, $n$, and $k$ denotes the threshold of amount waste in each bin, the number of bins, and the number of working clusters, respectively.
+
+\begin{table}[]
+	\centering
+	\caption{The definition of each variable}
+	\label{table1}
+	\begin{tabular}{|l|l|}
+		\hline
+		\centering
+
+ Variable & Description \\ \hline
+	$W=\{w_i | i \in (1,n)\}$	& The weight of each bin             \\ \hline
+		$T=\{t_{di} | d \in (1,m); i \in (1,n) \}$	& \begin{tabular}[c]{@{}l@{}}The collected data milestone \\of each bin      \end{tabular}       \\ \hline
+	$\mathcal{D}=\{S,L,W, T\}$	& The input data         \\ \hline
+	
+	$\eta$	& \begin{tabular}[c]{@{}l@{}}The threshold of amount waste \\in a bin  \end{tabular}        \\ \hline
+	
+	
+	$\mathcal{M}=\{M_j | j \in (1,k)\}$	& 
+	
+	\begin{tabular}[c]{@{}l@{}}The optimal route of each \\garbage truck within each cluster\end{tabular}
+  \\ \hline
+  \begin{tabular}[c]{@{}l@{}}
+  $\mathcal{DC}=\{DC_j | j \in (1,k)$; \\$DC_j = \{S_j, L_j, W_j, T_j\} \}$	\end{tabular}& 
+  
+  \begin{tabular}[c]{@{}l@{}}The working cluster\end{tabular}
+  \\ \hline
+
+  
+	\end{tabular}
+
+\end{table}
 
 
+\begin{algorithm}
+	\caption{Algorithm of smart waste management system }
+	\begin{algorithmic}[1]
+		\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+		\renewcommand{\algorithmicensure}{\textbf{Output:}}
+		\REQUIRE $\mathcal{D}, \eta$
+		\ENSURE  $\mathcal{M}$
+		\\ \textit{Initialization}: 
+		\STATE $k$ = Elbow ($\mathcal{D}\rightarrow$L)
+		\STATE $\mathcal{DC}$ = Kmeans ($\mathcal{D}\rightarrow$L, $k$)
+		\FOR {$j = 1$ to $k$}
+		\FOR {$h = 1$ to size($DC_j$)}
+		\IF {($s_{jh} \ge \eta$)}
+		\STATE $w_{jh} = 1$
+		\STATE $M_j$ = Optimalroute ($DC_j \rightarrow L_j, DC_j \rightarrow W_j$)
+		
+		\ENDIF
+		\ENDFOR
+		\ENDFOR
+		
+		\RETURN $\mathcal{M}$ 
+	\end{algorithmic} 
+\label{algorithm1}
+\end{algorithm}
 
-
-
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
- 
- 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
 % For figures, \caption should occur after the \includegraphics.
@@ -697,12 +763,13 @@ Y. Glouche and P. Couderc, \emph{A smart waste management with self-describing o
 A. Sinhan and P. Couderc, \emph{Smart bin for imcompatible waste items}, The ninth International Conference on Autonomic and Autonomous Systems, 2013, pp 40--45.
 
 
-\bibitem{Hsu2003}
-C.-W. Hsu, C.-C. Chang, and C.-J. Lin, \emph{A pratical guide to support vector classification}, Department of Computer Science and Information Engineering, National Taiwan University, 2003.
+\bibitem{Kanungo2003}
+ T. Kanungo, D.M. Mount, N.S. Netanyahu, C.D. Piatko, R. Silverman, and A.Y. Wu, \emph{An efficient k-means clustering algorithm: Analysis and implementation}, IEEE Transactions on Pattern Analysis and Machine Intelligence, Volume 24, Issue 7 (2002): 881--892.
 
 
-\bibitem{Spira1975}
-P. M. Spira and A. P. On, \emph{Finding and updating spanning trees and shortest paths}, SIAM Journal on Computing 1975 4:3, 375--380.
+\bibitem{Kodinariya2013}
+T. M. Kodinariya and P. R. Makwana, \emph{Review on determining number of cluster in K-means clustering}, International Journal of Advance Research in
+Computer Science and Management Studies, Volume 1, Issue 6 (2013): 90--95.
 
 
 \bibitem{Gutierrez2008}
