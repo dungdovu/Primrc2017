@@ -99,6 +99,7 @@
 \else
   % normal IEEE
   \usepackage{cite}
+  
 \fi
 % cite.sty was written by Donald Arseneau
 % V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
@@ -312,9 +313,10 @@
 % http://www.ctan.org/pkg/url
 % Basically, \url{my_url_here}.
  
- 
- 
- 
+ \usepackage{graphicx}
+ \graphicspath{ {images/} }
+ \usepackage{subcaption}
+ \usepackage{subfig}
 % *** Do not adjust lengths that control margins, column widths, etc. ***
 % *** Do not use packages that alter fonts (such as pslatex).         ***
 % There should be no need to do such things with IEEEtran.cls V1.6 and later.
@@ -324,7 +326,7 @@
  
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
- 
+
  
 \begin{document}
 %
@@ -432,14 +434,27 @@ This paper presents a new method of smart waste city management to provide a cle
 \end{itemize}
 \par This paper is organized as the followings: In section 2,  a new method of smart waste city management (SWCM) is explained and the structure of the algorithm is investigated. Section 3 presents the SWCM simulation model and it's performance which are used to compare with other method to evaluate our approach.  Finally, the related concluding remarks are discussed in section 4.
 
-
+\begin{figure}
+	\centering
+	\parbox{5cm}{
+		\includegraphics[width=5cm]{overview1}
+		\subcaption{First.}
+		\label{fig2}}
+	\qquad
+	\begin{minipage}{5cm}
+		\includegraphics[width=5cm]{overview3}
+		\subcaption{Second.}
+		\label{fig2}
+	\end{minipage}
+\caption{a}
+\end{figure}
  
 \section{IoT-Based Smart waste city management model}
 
 \subsection{Data acquisition} 
- \label{dataacquisition}
+\label{dataacquisition}
 In this section, we describe how to collect waste meta data associated with their status and locations. We choose to evaluate our model with real big data in order to validate its output.
-\par To obtain a set of waste data, we use an open source database, \footnote{https://www.opendataphilly.org/dataset} which has a significant amount of geo-location information and status of each bin at the largest city in the Commonwealth of Pennsylvania in the United Stated named Philadelphia. We removed the content that was automatically created by stream type service. For data analysis, we adopt the following five essential fields from this meta data:
+\par To obtain a set of waste data, we use an open source database, \footnote{https://www.opendataphilly.org/dataset} which has a significant amount of geo-location information and status of each bin at the largest city in the Commonwealth of Pennsylvania in the United Stated named Philadelphia. Figure \ref{Philadelphia} illustrates the distribution of trash bin (green node) in a part of Philadelphia City. We removed the content that was automatically created by stream type service. For data analysis, we adopt the following five essential fields from this meta data:
 \begin{itemize}
 	\item \textit{sn}: Serial number of each bin
 	\item \textit{timestamp}: Milestone of recording data
@@ -449,8 +464,20 @@ In this section, we describe how to collect waste meta data associated with thei
 \end{itemize}
 
 \par We observed that the original system has three levels of bin such as RED, YELLOW, and GREEN. So we tend to assume that the levels of bin should be HIGH, MEDIUM, and LOW, respectively. 
+
+
+
 \subsection{System description}
 \label{systemdesciption}
+\subsubsection{The overview of functionality}
+The proposed system is based on the waste status of each trash bin in the city. The data collected by sensors is sent over the Internet to the server where it is stored and processed. The collected data is used for monitoring and predicting the status of each bin daily. After that, they will be utilized for calculating the optimal garbage truck routes accordingly. Every day, the system sends the newly calculated routes to the workers based on the waste status, traffic congestion, the state of the forecast, and the balanced cost-efficiency functions. Since the limitation of our data, our optimal garbage truck routes is constructed based on the waste status of each bin.  The prediction status of bin can be analyzed based on the given training data before it occurs. The system overview is shown in the Figure\ref{overview2}.
+
+
+
+
+
+
+
 
 
 \subsubsection{Subsubsection Heading Here}
