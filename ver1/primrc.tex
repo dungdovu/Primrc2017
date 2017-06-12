@@ -489,11 +489,11 @@ The proposed system is based on the waste status of each trash bin in the city. 
 
 \subsubsection{Data processing and classifications}
 The status of each bin is generally not homogeneous and significantly differs from each other according to the sate of each location. In this section, we introduce an algorithm that can be used to dynamically and efficiently manage waste collection strategies.
-\par K-means \cite{Kanungo2003} is an unsupervised machine learning algorithm that groups a dataset into a user-specified number (k) of clusters. We use it to make the working cluster of each garbage truck. However, this algorithm is somewhat naive, it clusters the data into k clusters, even if k is not the right number of clusters to use. Therefore, when using k-means clustering, users need some way to determine whether they are using the right number of clusters. In this paper, we use Elbow method \cite{Kodinariya2013} to validate the number of clusters. The collecting routes are the travelling cycles containing a given set of trash bins. The optimization of these cycles is a combinatorial optimization problem. When the objective function of this optimization is to minimize the driving distance. By considering the large number of routes, we use Genetic algorithm (GA) \cite{Gutierrez2008} which are relatively fast in providing near optimal solutions. Since the garbage truck needs time to collect every trash bin, it is very delightful if a status of trash bin can be predicted. Hence, after predicting, the system will recommend which one should be collected to prevent the overload case. In this paper, we use the Linear regression algorithm (LR) \cite{Ferraro2010} to predict the status of each trash bin based on the historical data with a certain confident.
+\par K-means \cite{Kanungo2003} is an unsupervised machine learning algorithm that groups a dataset into a user-specified number (k) of clusters. We use it to make the working cluster of each garbage truck. However, this algorithm is somewhat naive, it clusters the data into k clusters, even if k is not the right number of clusters to use. Therefore, when using k-means clustering, users need some way to determine whether they are using the right number of clusters. In this paper, we use Elbow method \cite{Kodinariya2013} to validate the number of clusters. The collecting routes are the travelling cycles containing a given set of trash bins. The optimization of these cycles is a combinatorial optimization problem. When the objective function of this optimization is to minimize the driving distance. By considering the large number of routes, we use Genetic algorithm (GA) \cite{Gutierrez2008} which are relatively fast in providing near optimal solutions. Since the garbage truck needs time to collect every trash bin, it is very delightful if a status of trash bin can be predicted. Hence, after predicting, the system will recommend which one should be collected to prevent the overload case. In this paper, we use the Logistic regression algorithm \footnote{https://nlp.stanford.edu/manning/courses/ling289/logistic.pdf} to predict the status of each trash bin based on the historical data with a certain confident.
 
 \par  The overall procedure is summarized in Algorithm \ref{algorithm1}. In this algorithm, the parameters are defined in Table \ref{table1}. We suppose that the input dataset $\mathcal{D}$ is the database in \ref{dataacquisition}. The parameter $\eta$, $n$, $d$ and $k$ denotes the threshold of amount waste in each bin, the number of bins, the time stamp of collecting data, and the number of working clusters, respectively.
 At here, when a status of the trash bin in a cluster $s_{jh}$ is greater than the given threshold $\eta$, the weight of this one will be updated to $1$, then the GA algorithm minimizes the driving distance for visiting the selected bins and returning to the headquarters. 
-\par On the other hand, at the given time stamp $t'$, a linear regression algorithm is applied to predict the status of each bin. If the prediction status of bin is greater than the given threshold $\eta$, the weight is updated to 1, accordingly. Therefore, we can find a new optimal garbage truck routes which help us to prevent the overload trash case.
+\par On the other hand, at the given time stamp $t'$, a logistic regression algorithm is applied to predict the status of each bin. If the prediction status of bin is greater than the given threshold $\eta$, the weight is updated to $1$, accordingly. Therefore, we can find a new optimal garbage truck routes which help us to prevent the overload trash case.
 \begin{table}[]
 	\centering
 	\caption{The definition of each variable}
@@ -550,7 +550,7 @@ At here, when a status of the trash bin in a cluster $s_{jh}$ is greater than th
 \FOR {$j = 1$ to $k$}
 \FOR {$h = 1$ to size($DC_j$)}
 
-\STATE $s'_{jh}$ = LinearRegression($DC_j \rightarrow S_j, DC_j \rightarrow T'_j$)
+\STATE $s'_{jh}$ = LogisticRegression($DC_j \rightarrow S_j, DC_j \rightarrow T'_j$)
 \IF {($s'_{jh} \ge \eta$)}
 \STATE $w'_{jh} = 1$
 \STATE $M'_j$ = Optimalroute ($DC_j \rightarrow L_j, DC_j \rightarrow W'_j$)
@@ -666,30 +666,31 @@ At here, when a status of the trash bin in a cluster $s_{jh}$ is greater than th
  
  \begin{figure}
  	\centering
- 	\includegraphics[width=8cm]{elbow5}
+ 	\includegraphics[width=8.5cm]{elbow5}
  	\caption{The optimal value of number working clusters}
  	\label{fig3}
  \end{figure}
  
  One method to validate the number of clusters is the Elbow method. It looks at the percentage of variance explained as a function of the number of clusters: One should choose a number of clusters so that adding another cluster doesn’t give much better modeling of the data. In our work, we choose $k \in [1;15]$. To estimate the optimal value of $k$, we consider the ratio $\frac{BSS}{TSS}$, where $BSS$ and $TSS$ are the between and total sum of squares, respectively. A good choice value of $k$ is considered if this ratio tends to change slowly and remain less changing as compared to other $k'$s \footnote{https://www.r-bloggers.com/finding-optimal-number-of-clusters/}. We see a pretty clear Elbow at $k = 5$, indicating that $5$ is the best number of clusters.
- 
- \par Using the value of $k$ above, we apply the K-means algorithm to make the working clusers for our system. The output is represented in the Figure \ref{fig4}. If the manager tend to add more trash bins into our system, the system will automatically classify them to the each cluster. 
- 
-  \begin{figure}
+   \begin{figure}
  	\centering
  	\includegraphics[width=8.5cm]{workingcluster}
  	\caption{The working clusters in Philadelphia}
  	\label{fig4}
  \end{figure}
  
+ \par Using the value of $k$ above, we apply the K-means algorithm to make the working clusers for our system. The output is represented in the Figure \ref{fig4}. If the manager tend to add more trash bins into our system, the system will automatically classify them to the each cluster. 
  
-  \subsection{Optimal route of garbage truck in each cluster}
 
-In the each dataset $\mathcal{DC}_j$, where $j \in [1:k]$, we observed that the original system has three levels of bin such as RED, YELLOW, and GREEN. %So we assume that the full level of bins should be $70\%-100\%$, $40\%-69\%$, and $0\%-39\%$, respectively.
-
-\par Since we need to update the optimal garbage truck routes daily, so we would like to pick up a milestone randomly which is ``2014/06/16" in our dataset to make the simulation. The optimal garbage truck routes of each working cluster are presented in the Figure \ref{fig5}.
+ 
+\subsection{Optimal route of garbage truck in each cluster}
 
 
+In the each dataset $\mathcal{DC}_j$, where $j \in [1:k]$, we observed that the original system has three levels of bin such as RED, YELLOW, and GREEN. Let we assume that when the level of trash bin is RED or YELLOW, its weight is $1$, otherwise it is $0$.
+
+\par Since we need to update the optimal garbage truck routes daily, so we would like to pick up a milestone randomly which is ``2014/06/16" in our dataset to make the simulation. By using the GA algorithm, the optimal garbage truck routes of each working cluster are constructed based on the weight and coordinate of trash bins Figure \ref{fig5}. We observed that the garbage trucks collected all the trash bin whose weigh is $1$. Hence, the system will help the smart city to reduce the traffic congestion, fuel consumption, and pollution.
+
+ 
 \begin{figure}
 	\centering
 	\parbox{5cm}{
@@ -701,29 +702,45 @@ In the each dataset $\mathcal{DC}_j$, where $j \in [1:k]$, we observed that the 
 		\subcaption{Cluster 2}
 		\label{fig1b}
 	\end{minipage}
-
-	\parbox{5cm}{
-	\includegraphics[width=4cm]{Cluster3}
-	\subcaption{Cluster 3}
-	\label{fig1a}}
-\begin{minipage}{3cm}
-	\includegraphics[width=4cm]{Cluster4}
-	\subcaption{Cluster 4}
-	\label{fig1b}
-\end{minipage}
-
-\begin{minipage}{3cm}
-	\includegraphics[width=4cm]{Cluster5}
 	
+	\parbox{5cm}{
+		\includegraphics[width=4cm]{Cluster3}
+		\subcaption{Cluster 3}
+		\label{fig1a}}
+	\begin{minipage}{3cm}
+		\includegraphics[width=4cm]{Cluster4}
+		\subcaption{Cluster 4}
+		\label{fig1b}
+	\end{minipage}
+	
+	\begin{minipage}{3cm}
+		\includegraphics[width=4cm]{Cluster5}
+		
 		\subcaption{Cluster 5}
-	\label{fig1b}
-\end{minipage}
+		\label{fig1b}
+	\end{minipage}
 	\caption{The optimal route of garbage truck at 2014/06/16}
 	\label{fig5}
-
+	
 \end{figure}
-\section{Conclusion}
-The conclusion goes here.
+\subsection{Prediction the status of trash bin} 
+
+In fact, when the garbage trucks are running on the road, the status of trash bins can be updated. It is very delightful to predict the status of trash bin, then update the weight of this one. After that, the system will update the optimal garbage truck route. 
+
+We pick up randomly one trash bin in one cluster whose serial number and location are $171758$ and ($39.95204^o -75.15911^o$), respectively to analyze the output result conveniently. We convert all the date to the numeric data type \footnote{https://cran.r-project.org/web/packages/lubridate/lubridate.pdf} which is utilized for the Logistic regression algorithm. Figure \ref{fig6} represents the trends of the weight of trash bin. By considering a given time, if the red line approach the value $1$, the weight of trash bin will be updated to $1$, accordingly. Hence, the optimal garbage truck route will be constructed based on the new weight.
+
+  \begin{figure}
+	\centering
+	\includegraphics[width=8.5cm]{regression}
+	\caption{The logistic regression of the $171758^{th}$ trash bin}
+	\label{fig6}
+\end{figure}
+
+
+\section{Conclusion and future work}
+In this paper, we first clustered the working area by using the open source database of Philadelphia. Especially, we introduced an algorithm which automatically makes the working clusters and calculates the optimal garbage truck routes. Also, we use the logistic regression to predict the level status and update the weight of each trash bin. They will be used to make the new optimal garbage route to reduce the pollution, and fuel consumption more efficiently.  
+
+To further improve the algorithm, future work, the optimal garbage truck routes within each cluster need to be fitted with the street map data.
  
  
  
@@ -735,14 +752,9 @@ The conclusion goes here.
 % use section* for acknowledgment
 \ifCLASSOPTIONcompsoc
   % The Computer Society usually uses the plural form
-  \section*{Acknowledgments}
-\else
-  % regular IEEE prefers the singular form
-  \section*{Acknowledgment}
-\fi
- 
- 
-The authors would like to thank...
+
+
+
  
  
  
@@ -851,8 +863,6 @@ Computer Science and Management Studies, Volume 1, Issue 6 (2013): 90--95.
 J. M. Gutierrez, M. Imine, and O. B. Madsen, \emph{Network planning using GA for regular topologies}, Proceedings of IEEE International Conference on Communications, 2008, pp: 5258--5262.
 
 
-\bibitem{Ferraro2010}
-M. B. Ferraro, R. Coppi, G. Gonz\'alez, Rodr\'iguez, and A. Colubi, \emph{A linear regression model for imprecise response}, International Journal of Approximate Reasoning Volume 51, Number 7 (2010): 759--770.
 
 
 

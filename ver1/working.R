@@ -19,6 +19,10 @@ for (x in libs){
 #distance between two point
 library(GA)
 library(MASS)
+
+#install.packages("NISTunits", dependencies = TRUE)
+library(NISTunits)
+
 distance_two_points<- function(lat1,lon1,lat2,lon2)
 {
   d<- acos( sin(NISTdegTOradian(lat1))*sin(NISTdegTOradian(lat2)) + cos(NISTdegTOradian(lat1))*cos(NISTdegTOradian(lat2))*cos(NISTdegTOradian(lon2)-NISTdegTOradian(lon1)) ) * 6371000
@@ -69,26 +73,47 @@ test  <- data[-sample, ]
 head(train,5)
 head(test,5)
 set.seed(124)
-head(data)
+# 
+# for (i in 1:nrow(data))
+# {
+#   if (data$level[i] =="GREEN")
+#   {
+#     data$level.status[i]<-sample(0:39, 1,replace=T)/100
+#   }
+#   if (data$level[i] =="YELLOW")
+#   {
+#     data$level.status[i]<-sample(40:69, 1,replace=T)/100
+#   }
+# 
+#   if (data$level[i] =="RED")
+#   {
+#     data$level.status[i]<-sample(70:100, 1,replace=T)/100
+#   }
+#   print(i)
+# 
+# 
+# }
+
+
 
 for (i in 1:nrow(data))
 {
   if (data$level[i] =="GREEN")
   {
-    data$level.status[i]<-sample(0:39, 1,replace=T)/100
+    data$level.status[i]<-0
   }
   if (data$level[i] =="YELLOW")
   {
-    data$level.status[i]<-sample(40:69, 1,replace=T)/100
+    data$level.status[i]<-1
   }
-  
+
   if (data$level[i] =="RED")
   {
-    data$level.status[i]<-sample(70:100, 1,replace=T)/100
+    data$level.status[i]<-1
   }
   print(i)
-  
-  
+
+
 }
 ggplot(data,aes(data$lat, data$lon))+geom_point()
 
@@ -123,6 +148,7 @@ plot(1:15, wss, type="b", xlab="Number of Clusters",
 #      pch=20, cex=2)
 set.seed(170)
 
+
 dataCluster <- kmeans(train[, 5:6], 5, nstart = 20)
 
 
@@ -139,12 +165,12 @@ p<-ggplot(train, aes(train$lat, train$lon, color = dataCluster$cluster)) + geom_
 p + labs(colour = "Cluster",x = "Latitude", y = "Longitude")
 #plot the high level of each bin in the cluster
 
-
+#choose the working cluster
 cluster8<-data[which(dataCluster$cluster==3),]
 head(cluster8,5)
 #test in a certain date 06/16/2014 and in a certain cluster (cluster 8)
 cluster8_temp<-cluster8[which(substr(cluster8$timestamp,1,10)=="2014-06-16"),]
-cluster8_temp_red<-cluster8[which(cluster8_temp$level.status>0.5),]
+cluster8_temp_red<-cluster8_temp[which(cluster8_temp$level.status > 0),]
 plot(cluster8_temp_red[,5],cluster8_temp_red[,6],col="red",main= 1)
 
 
@@ -156,7 +182,7 @@ plot(cluster8_temp_red[,5],cluster8_temp_red[,6],col="red",main= 1)
 
 
 #install.packages("NISTunits", dependencies = TRUE)
-library(NISTunits)
+#library(NISTunits)
 data_temp_dup<-cluster8_temp_red[!duplicated(cluster8_temp_red),]
 l<-nrow(data_temp_dup)
 d1<-matrix(NA, nrow = l, ncol = l)
@@ -187,14 +213,15 @@ tourLength <- function(tour, distMatrix) {
 
 D <- as.matrix(d1)
 head(D)
-
+set.seed(888)
 tspFitness <- function(tour, ...) 1/tourLength(tour, ...)
 GA <- ga(type = "permutation", fitness = tspFitness, distMatrix = D,
          min = 1, max = nrow(D), popSize = 50, maxiter = 5000,
          run = 500, pmutation = 0.2)
 
 summary(GA)
-
+#install.packages("polysat")
+#install.packages("ape")
 
 mds <- cmdscale(D)
 x <- mds[, 1]
@@ -212,7 +239,7 @@ n <- length(tour)
 #print tour of verhicle
 tour
 plot(cluster8_temp_red[,5],cluster8_temp_red[,6],col="red",xlab="Longitude",ylab="Latitude",pch=19)
-text(cluster8_temp_red[,5],cluster8_temp_red[,6]+0.001,labels(D[,1]), cex=1.5)
+#text(cluster8_temp_red[,5],cluster8_temp_red[,6]+0.001,labels(D[,1]), cex=1.5)
 arrows(cluster8_temp_red[tour[-n],5],cluster8_temp_red[tour[-n],6],cluster8_temp_red[tour[-1],5],cluster8_temp_red[tour[-1],6],
        length = 0.15, angle = 36, col = "steelblue", lwd = 2)
 
@@ -233,38 +260,54 @@ count.duplicates <- function(DF){
 }
 DF <-data.frame(cluster8$sn)
 DF_count<-count.duplicates(DF)
-temp_predict<-cluster8[which(cluster8$sn==DF[which(DF_count$count==max(DF_count$count)),]),]
 
 
+candidate<-DF_count[which(DF_count$count==123)),]
+temp_predict<-cluster8[which(cluster8$sn==candidate$cluster8.sn),]
 
 
-plot(temp_predict$timestamp,temp_predict$level.status,cex=0.5,pch=19)
 
 temp_predict$timestamp<-as.numeric(temp_predict$timestamp)
+attach(temp_predict)
+plot(temp_predict$timestamp,temp_predict$level.status,cex=0.5,pch=19)
+
+
 #linear regression
-relation <- lm(temp_predict$level.status~temp_predict$timestamp)
-summary(relation)
-predictlinear <- predict(relation, type = 'response')
-table(temp_predict$level.status, predictlinear > 0.5)
-ggplot(temp_predict, aes(x=temp_predict$timestamp, y=temp_predict$level.status)) + geom_point() + 
-  stat_smooth(method="lm", se=FALSE)
+# relation <- lm(temp_predict$level.status~temp_predict$timestamp)
+# summary(relation)
+# predictlinear <- predict(relation, type = 'response')
+# ggplot(temp_predict, aes(x=temp_predict$timestamp, y=temp_predict$level.status)) + geom_point() + 
+#   stat_smooth(method="lm", se=FALSE)
 
 
 
 
 
-#model <- glm (temp_predict$level.status ~ temp_predict$timestamp, data = temp_predict, family = binomial)
-#summary(model)
-
-#predict <- predict(model, type = 'response')
-
-#table(temp_predict$level.status, predict > 0.5)
 
 
-#plot glm
-#library(ggplot2)
-#ggplot(temp_predict, aes(x=temp_predict$timestamp, y=temp_predict$level.status)) + geom_point() + 
- # stat_smooth(method="glm", se=FALSE)
+#install.packages('caTools')
+library(caTools)
 
+status<-temp_predict$level.status
+timest<-temp_predict$timestamp
+
+model <- glm(status~timest,binomial)
+
+
+plot(timest,status)
+summary(model)
+
+xv<-seq(min(timest),max(timest),100)
+yv<-predict(model,list(timest=xv),type="response")
+lines(xv,yv,col="red")
+# predict <- predict(model, type = 'response')
+# 
+# table(temp_predict$level.status, predict > 0.5)
+# 
+# 
+ library(ROCR)
+ ROCRpred <- prediction(timest,status)
+ROCRperf <- performance(ROCRpred, 'tpr','fpr')
+plot(ROCRperf, colorize = TRUE, text.adj = c(-0.2,1.7))
 
 
