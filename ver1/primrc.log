@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.6.6)  11 JUN 2017 15:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.6.6)  11 JUN 2017 20:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -228,7 +228,38 @@ Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 \ALC@tlm=\skip49
 \algorithmicindent=\skip50
 )
-(./primrc.aux)
+(./primrc.aux
+
+LaTeX Warning: Label `fig1a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig1a' multiply defined.
+
+
+LaTeX Warning: Label `fig1b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig1b' multiply defined.
+
+
+LaTeX Warning: Label `fig1a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig1a' multiply defined.
+
+
+LaTeX Warning: Label `fig1b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig1b' multiply defined.
+
+
+LaTeX Warning: Label `fig1b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig1b' multiply defined.
+
+)
 \openout1 = `primrc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 331.
@@ -353,24 +384,94 @@ Package pdftex.def Info: images/Model1-2.png used on input line 482.
  [2 <./overview1.png> <./images/overview3.png>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 496.
+               Default added (so using `tbp') on input line 497.
 
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 500.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 501.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8.03> on input line 500.
+(Font)              <8.03> on input line 501.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.62097> on input line 500.
+(Font)              <5.62097> on input line 501.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <4.015> on input line 500.
+(Font)              <4.015> on input line 501.
 
-Overfull \hbox (2.04958pt too wide) in paragraph at lines 500--524
+Overfull \hbox (2.04958pt too wide) in paragraph at lines 501--525
  [][] 
+ []
+
+<images/elbow5.png, id=21, 641.39626pt x 557.08125pt>
+File: images/elbow5.png Graphic file (type png)
+ <use images/elbow5.png>
+Package pdftex.def Info: images/elbow5.png used on input line 669.
+(pdftex.def)             Requested size: 227.62204pt x 197.69298pt.
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+
+[3 <./images/Model1-2.png>]
+<images/workingcluster.png, id=34, 481.04718pt x 417.81094pt>
+File: images/workingcluster.png Graphic file (type png)
+
+<use images/workingcluster.png>
+Package pdftex.def Info: images/workingcluster.png used on input line 680.
+(pdftex.def)             Requested size: 241.84842pt x 210.05888pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+<images/Cluster1.png, id=35, 481.04718pt x 417.81094pt>
+File: images/Cluster1.png Graphic file (type png)
+
+<use images/Cluster1.png>
+Package pdftex.def Info: images/Cluster1.png used on input line 698.
+(pdftex.def)             Requested size: 113.81102pt x 98.8486pt.
+
+<images/Cluster2.png, id=36, 481.04718pt x 417.81094pt>
+File: images/Cluster2.png Graphic file (type png)
+
+<use images/Cluster2.png>
+Package pdftex.def Info: images/Cluster2.png used on input line 700.
+(pdftex.def)             Requested size: 113.81102pt x 98.8486pt.
+
+Overfull \hbox (28.45276pt too wide) in paragraph at lines 700--701
+[][] 
+ []
+
+<images/Cluster3.png, id=37, 481.04718pt x 417.81094pt>
+File: images/Cluster3.png Graphic file (type png)
+
+<use images/Cluster3.png>
+Package pdftex.def Info: images/Cluster3.png used on input line 708.
+(pdftex.def)             Requested size: 113.81102pt x 98.8486pt.
+
+<images/Cluster4.png, id=38, 481.04718pt x 417.81094pt>
+File: images/Cluster4.png Graphic file (type png)
+
+<use images/Cluster4.png>
+Package pdftex.def Info: images/Cluster4.png used on input line 710.
+(pdftex.def)             Requested size: 113.81102pt x 98.8486pt.
+
+Overfull \hbox (28.45276pt too wide) in paragraph at lines 710--711
+[][] 
+ []
+
+<images/Cluster5.png, id=39, 481.04718pt x 417.81094pt>
+File: images/Cluster5.png Graphic file (type png)
+
+<use images/Cluster5.png>
+Package pdftex.def Info: images/Cluster5.png used on input line 716.
+(pdftex.def)             Requested size: 113.81102pt x 98.8486pt.
+
+Overfull \hbox (28.45276pt too wide) in paragraph at lines 716--717
+[][] 
  []
 
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-[3 <./images/Model1-2.png>]
+[4 <./images/elbow5.png> <./images/workingcluster.png (PNG copy)> <./images/Clu
+ster1.png (PNG copy)> <./images/Cluster2.png (PNG copy)> <./images/Cluster3.png
+ (PNG copy)> <./images/Cluster4.png (PNG copy)> <./images/Cluster5.png (PNG cop
+y)>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -382,34 +483,37 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4
+[5] (./primrc.aux)
 
-] (./primrc.aux) ) 
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4036 strings out of 493029
- 66733 string characters out of 6136235
- 140059 words of memory out of 5000000
- 7529 multiletter control sequences out of 15000+600000
+ 4074 strings out of 493029
+ 67520 string characters out of 6136235
+ 143122 words of memory out of 5000000
+ 7560 multiletter control sequences out of 15000+600000
  41887 words of font info for 76 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 42i,15n,46p,2459b,608s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on primrc.pdf (4 pages, 809789 bytes).
+ 42i,16n,46p,2459b,616s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
+/utmri8a.pfb>
+Output written on primrc.pdf (5 pages, 1063488 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 92 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

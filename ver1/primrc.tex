@@ -464,7 +464,7 @@ In this section, we describe how to collect waste meta data associated with thei
 	\item \textit{lon} The longitude of each bin
 \end{itemize}
 
-\par We observed that the original system has three levels of bin such as RED, YELLOW, and GREEN. So we tend to assume that the levels of bin should be HIGH, MEDIUM, and LOW, respectively. 
+
 
 
 
@@ -491,8 +491,9 @@ The proposed system is based on the waste status of each trash bin in the city. 
 The status of each bin is generally not homogeneous and significantly differs from each other according to the sate of each location. In this section, we introduce an algorithm that can be used to dynamically and efficiently manage waste collection strategies.
 \par K-means \cite{Kanungo2003} is an unsupervised machine learning algorithm that groups a dataset into a user-specified number (k) of clusters. We use it to make the working cluster of each garbage truck. However, this algorithm is somewhat naive, it clusters the data into k clusters, even if k is not the right number of clusters to use. Therefore, when using k-means clustering, users need some way to determine whether they are using the right number of clusters. In this paper, we use Elbow method \cite{Kodinariya2013} to validate the number of clusters. The collecting routes are the travelling cycles containing a given set of trash bins. The optimization of these cycles is a combinatorial optimization problem. When the objective function of this optimization is to minimize the driving distance. By considering the large number of routes, we use Genetic algorithm (GA) \cite{Gutierrez2008} which are relatively fast in providing near optimal solutions. Since the garbage truck needs time to collect every trash bin, it is very delightful if a status of trash bin can be predicted. Hence, after predicting, the system will recommend which one should be collected to prevent the overload case. In this paper, we use the Linear regression algorithm (LR) \cite{Ferraro2010} to predict the status of each trash bin based on the historical data with a certain confident.
 
-\par  The overall procedure is summarized in Algorithm \ref{algorithm1}. In this algorithm, the parameters are defined in Table \ref{table1}. We suppose that the input dataset $\mathcal{D}$ is the database in \ref{dataacquisition}. The parameter $\eta$, $n$, and $k$ denotes the threshold of amount waste in each bin, the number of bins, and the number of working clusters, respectively.
-
+\par  The overall procedure is summarized in Algorithm \ref{algorithm1}. In this algorithm, the parameters are defined in Table \ref{table1}. We suppose that the input dataset $\mathcal{D}$ is the database in \ref{dataacquisition}. The parameter $\eta$, $n$, $d$ and $k$ denotes the threshold of amount waste in each bin, the number of bins, the time stamp of collecting data, and the number of working clusters, respectively.
+At here, when a status of the trash bin in a cluster $s_{jh}$ is greater than the given threshold $\eta$, the weight of this one will be updated to $1$, then the GA algorithm minimizes the driving distance for visiting the selected bins and returning to the headquarters. 
+\par On the other hand, at the given time stamp $t'$, a linear regression algorithm is applied to predict the status of each bin. If the prediction status of bin is greater than the given threshold $\eta$, the weight is updated to 1, accordingly. Therefore, we can find a new optimal garbage truck routes which help us to prevent the overload trash case.
 \begin{table}[]
 	\centering
 	\caption{The definition of each variable}
@@ -526,7 +527,7 @@ The status of each bin is generally not homogeneous and significantly differs fr
 
 
 \begin{algorithm}
-	\caption{Algorithm of smart waste management system }
+	\caption{}
 	\begin{algorithmic}[1]
 		\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 		\renewcommand{\algorithmicensure}{\textbf{Output:}}
@@ -534,22 +535,37 @@ The status of each bin is generally not homogeneous and significantly differs fr
 		\ENSURE  $\mathcal{M}$
 		\\ \textit{Initialization}: 
 		\STATE $k$ = Elbow ($\mathcal{D}\rightarrow$L)
-		\STATE $\mathcal{DC}$ = Kmeans ($\mathcal{D}\rightarrow$L, $k$)
+		\STATE $\mathcal{DC}$ = K-means ($\mathcal{D}\rightarrow$L, $k$)
+		\STATE At a given time stamp $t$ in the original data.
 		\FOR {$j = 1$ to $k$}
 		\FOR {$h = 1$ to size($DC_j$)}
 		\IF {($s_{jh} \ge \eta$)}
 		\STATE $w_{jh} = 1$
 		\STATE $M_j$ = Optimalroute ($DC_j \rightarrow L_j, DC_j \rightarrow W_j$)
-		
 		\ENDIF
 		\ENDFOR
+		\STATE Plot ($M_j$)
 		\ENDFOR
-		
-		\RETURN $\mathcal{M}$ 
+	\STATE At a given time stamp $t^{'}$ in the near future.
+\FOR {$j = 1$ to $k$}
+\FOR {$h = 1$ to size($DC_j$)}
+
+\STATE $s'_{jh}$ = LinearRegression($DC_j \rightarrow S_j, DC_j \rightarrow T'_j$)
+\IF {($s'_{jh} \ge \eta$)}
+\STATE $w'_{jh} = 1$
+\STATE $M'_j$ = Optimalroute ($DC_j \rightarrow L_j, DC_j \rightarrow W'_j$)
+\ENDIF
+
+\ENDFOR
+\STATE Plot ($M'_j$)
+\ENDFOR
+
 	\end{algorithmic} 
 \label{algorithm1}
 \end{algorithm}
 
+
+\section{Analysis result and discussion}
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
 % For figures, \caption should occur after the \includegraphics.
@@ -644,9 +660,68 @@ The status of each bin is generally not homogeneous and significantly differs fr
 % footnotes above bottom floats. This can be corrected via the
 % \fnbelowfloat command of the stfloats package.
  
+ In this section, using the proposed Algorithm \ref{algorithm1} in Section \ref{systemdesciption}, we first analyze the number of working cluster and then show the experimental result. We simply assume $\eta = 0.5$, which can also to be set another value to monitor the amount of waste. 
+ 
+ \subsection{Number of working cluster}
+ 
+ \begin{figure}
+ 	\centering
+ 	\includegraphics[width=8cm]{elbow5}
+ 	\caption{The optimal value of number working clusters}
+ 	\label{fig3}
+ \end{figure}
+ 
+ One method to validate the number of clusters is the Elbow method. It looks at the percentage of variance explained as a function of the number of clusters: One should choose a number of clusters so that adding another cluster doesn’t give much better modeling of the data. In our work, we choose $k \in [1;15]$. To estimate the optimal value of $k$, we consider the ratio $\frac{BSS}{TSS}$, where $BSS$ and $TSS$ are the between and total sum of squares, respectively. A good choice value of $k$ is considered if this ratio tends to change slowly and remain less changing as compared to other $k'$s \footnote{https://www.r-bloggers.com/finding-optimal-number-of-clusters/}. We see a pretty clear Elbow at $k = 5$, indicating that $5$ is the best number of clusters.
+ 
+ \par Using the value of $k$ above, we apply the K-means algorithm to make the working clusers for our system. The output is represented in the Figure \ref{fig4}. If the manager tend to add more trash bins into our system, the system will automatically classify them to the each cluster. 
+ 
+  \begin{figure}
+ 	\centering
+ 	\includegraphics[width=8.5cm]{workingcluster}
+ 	\caption{The working clusters in Philadelphia}
+ 	\label{fig4}
+ \end{figure}
  
  
- 
+  \subsection{Optimal route of garbage truck in each cluster}
+
+In the each dataset $\mathcal{DC}_j$, where $j \in [1:k]$, we observed that the original system has three levels of bin such as RED, YELLOW, and GREEN. So we assume that the full level of bins should be $70\%-100\%$, $40\%-69\%$, and $0\%-39\%$, respectively.
+
+\par Since we need to update the optimal garbage truck routes daily, so we would like to pick up a milestone randomly which is ``2014/06/16" in our dataset to make the simulation. The optimal garbage truck routes of each working cluster are presented in the Figure \ref{fig5}.
+
+
+\begin{figure}
+	\centering
+	\parbox{5cm}{
+		\includegraphics[width=4cm]{Cluster1}
+		\subcaption{Cluster 1}
+		\label{fig1a}}
+	\begin{minipage}{3cm}
+		\includegraphics[width=4cm]{Cluster2}
+		\subcaption{Cluster 2}
+		\label{fig1b}
+	\end{minipage}
+
+	\parbox{5cm}{
+	\includegraphics[width=4cm]{Cluster3}
+	\subcaption{Cluster 3}
+	\label{fig1a}}
+\begin{minipage}{3cm}
+	\includegraphics[width=4cm]{Cluster4}
+	\subcaption{Cluster 4}
+	\label{fig1b}
+\end{minipage}
+
+\begin{minipage}{3cm}
+	\includegraphics[width=4cm]{Cluster5}
+	
+		\subcaption{Cluster 5}
+	\label{fig1b}
+\end{minipage}
+	\caption{The optimal route of garbage truck at 2014/06/16}
+	\label{fig5}
+
+\end{figure}
 \section{Conclusion}
 The conclusion goes here.
  
