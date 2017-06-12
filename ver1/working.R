@@ -74,7 +74,7 @@ ggplot(data,aes(data$lat, data$lon))+geom_point()
 
 set.seed(20)
 
-mydata <- cbind(train$lat,train$lon)
+mydata <- cbind(data$lat,data$lon)
 wss <- (nrow(mydata)-1)*sum(apply(mydata,2,var))
 for (i in 2:15) wss[i] <- sum(kmeans(mydata,
                                      centers=i)$withinss)
@@ -85,26 +85,27 @@ plot(1:15, wss, type="b", xlab="Number of Clusters",
 #k=5
 
 
-
-
-
-set.seed(123)
-# Compute and plot wss for k = 2 to k = 15.
-k.max <- 15
-data <- mydata 
-wss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )$tot.withinss})
-wss
-plot(1:k.max, wss,  type="b",  frame = TRUE,  xlab="Number of clusters K", ylab="Total within-clusters sum of squares (WSS)", main="Assessing the Optimal Number of Clusters with the Elbow Method",
-     pch=20, cex=2)
-
-
-bss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )}$betweenss)
-tss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )}$totss)
-ratio<-bss/tss
-plot(1:k.max,ratio, type="b",  frame = TRUE,  xlab="Number of clusters K", ylab="The ratio of BSS/TSS", main="Assessing the Optimal Number of Clusters with the Elbow Method",
-     pch=20, cex=2)
+# set.seed(123)
+# # Compute and plot wss for k = 2 to k = 15.
+# k.max <- 15
+# data <- mydata 
+# wss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )$tot.withinss})
+# wss
+# plot(1:k.max, wss,  type="b",  frame = TRUE,  xlab="Number of clusters K", ylab="Total within-clusters sum of squares (WSS)", main="Assessing the Optimal Number of Clusters with the Elbow Method",
+#      pch=20, cex=2)
+# 
+# 
+# bss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )}$betweenss)
+# tss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )}$totss)
+# ratio<-bss/tss
+# plot(1:k.max,ratio, type="b",  frame = TRUE,  xlab="Number of clusters k", ylab="The ratio of BSS/TSS", main="Assessing the Optimal Number of Clusters with the Elbow Method",
+#      pch=20, cex=2)
+set.seed(170)
 
 dataCluster <- kmeans(train[, 5:6], 5, nstart = 20)
+
+
+
 
 dataCluster
 table(dataCluster$cluster)
@@ -118,11 +119,11 @@ p + labs(colour = "Cluster",x = "Latitude", y = "Longitude")
 #plot the high level of each bin in the cluster
 
 
-cluster8<-train[which(dataCluster$cluster==1),]
-
+cluster8<-data[which(dataCluster$cluster==5),]
+head(cluster8,5)
 #test in a certain date 06/16/2014 and in a certain cluster (cluster 8)
-#cluster8_temp<-cluster8[which(substr(cluster8$timestamp,1,10)=="2014-06-16"),]
-cluster8_temp_red<-cluster8_temp[which(cluster8_temp$level.status>0.5),]
+cluster8_temp<-cluster8[which(substr(cluster8$timestamp,1,10)=="2014-06-16"),]
+cluster8_temp_red<-cluster8[which(cluster8_temp$level.status>0.5),]
 plot(cluster8_temp_red[,5],cluster8_temp_red[,6],col="red",main= 1)
 
 
@@ -189,12 +190,29 @@ n <- length(tour)
 #text(x,y,labels(D[,1]))
 #print tour of verhicle
 tour
-plot(cluster8_temp_red[,5],cluster8_temp_red[,6],col="red",xlab="longitude",ylab="latitude",pch=19,main="Optimization verhicle route at 06/16/2014")
+plot(cluster8_temp_red[,5],cluster8_temp_red[,6],col="red",xlab="Longitude",ylab="Latitude",pch=19)
 text(cluster8_temp_red[,5],cluster8_temp_red[,6]+0.001,labels(D[,1]), cex=1.5)
 arrows(cluster8_temp_red[tour[-n],5],cluster8_temp_red[tour[-n],6],cluster8_temp_red[tour[-1],5],cluster8_temp_red[tour[-1],6],
        length = 0.15, angle = 36, col = "steelblue", lwd = 2)
 
 ####################################################################################################################
+
+
+#insert value for the data set
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # count duplicate 
 count.duplicates <- function(DF){
