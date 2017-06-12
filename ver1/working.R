@@ -68,7 +68,28 @@ train <- data[sample, ]
 test  <- data[-sample, ]
 head(train,5)
 head(test,5)
+set.seed(124)
+head(data)
 
+for (i in 1:nrow(data))
+{
+  if (data$level[i] =="GREEN")
+  {
+    data$level.status[i]<-sample(0:39, 1,replace=T)/100
+  }
+  if (data$level[i] =="YELLOW")
+  {
+    data$level.status[i]<-sample(40:69, 1,replace=T)/100
+  }
+  
+  if (data$level[i] =="RED")
+  {
+    data$level.status[i]<-sample(70:100, 1,replace=T)/100
+  }
+  print(i)
+  
+  
+}
 ggplot(data,aes(data$lat, data$lon))+geom_point()
 
 
@@ -119,7 +140,7 @@ p + labs(colour = "Cluster",x = "Latitude", y = "Longitude")
 #plot the high level of each bin in the cluster
 
 
-cluster8<-data[which(dataCluster$cluster==5),]
+cluster8<-data[which(dataCluster$cluster==3),]
 head(cluster8,5)
 #test in a certain date 06/16/2014 and in a certain cluster (cluster 8)
 cluster8_temp<-cluster8[which(substr(cluster8$timestamp,1,10)=="2014-06-16"),]
@@ -202,25 +223,13 @@ arrows(cluster8_temp_red[tour[-n],5],cluster8_temp_red[tour[-n],6],cluster8_temp
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 # count duplicate 
 count.duplicates <- function(DF){
   x <- do.call('paste', c(DF, sep = '\r'))
   ox <- order(x)
   rl <- rle(x[ox])
   cbind(DF[ox[cumsum(rl$lengths)],,drop=FALSE],count = rl$lengths)
-  
+ 
 }
 DF <-data.frame(cluster8$sn)
 DF_count<-count.duplicates(DF)
@@ -242,16 +251,6 @@ ggplot(temp_predict, aes(x=temp_predict$timestamp, y=temp_predict$level.status))
 
 
 
-#logic regression
-
-#install.packages('caTools')
-library(caTools)
-for (i in 1:nrow(temp_predict))
-{
- if(temp_predict$level.status[i]>0)
-   temp_predict$level.status[i]<-1
-}
-
 
 
 #model <- glm (temp_predict$level.status ~ temp_predict$timestamp, data = temp_predict, family = binomial)
@@ -266,8 +265,6 @@ for (i in 1:nrow(temp_predict))
 #library(ggplot2)
 #ggplot(temp_predict, aes(x=temp_predict$timestamp, y=temp_predict$level.status)) + geom_point() + 
  # stat_smooth(method="glm", se=FALSE)
-install.packages("LogicReg")
-library(LogicReg)
 
 
 
