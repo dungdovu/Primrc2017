@@ -146,15 +146,16 @@ plot(1:15, wss, type="b", xlab="Number of Clusters",
 # ratio<-bss/tss
 # plot(1:k.max,ratio, type="b",  frame = TRUE,  xlab="Number of clusters k", ylab="The ratio of BSS/TSS", main="Assessing the Optimal Number of Clusters with the Elbow Method",
 #      pch=20, cex=2)
+
+
+
 set.seed(170)
-
-
 dataCluster <- kmeans(train[, 5:6], 5, nstart = 20)
 
 
 
-
 dataCluster
+set.seed(179)
 table(dataCluster$cluster)
 #install.packages("ggplot2")
 library(ggplot2)
@@ -262,14 +263,14 @@ DF <-data.frame(cluster8$sn)
 DF_count<-count.duplicates(DF)
 
 
-candidate<-DF_count[which(DF_count$count==123)),]
+candidate<-DF_count[which(DF_count$count==max(DF_count$count)),]
 temp_predict<-cluster8[which(cluster8$sn==candidate$cluster8.sn),]
 
 
 
 temp_predict$timestamp<-as.numeric(temp_predict$timestamp)
 attach(temp_predict)
-plot(temp_predict$timestamp,temp_predict$level.status,cex=0.5,pch=19)
+#plot(temp_predict$timestamp,temp_predict$level.status,cex=0.5,pch=19,co;="green")
 
 
 #linear regression
@@ -294,10 +295,10 @@ timest<-temp_predict$timestamp
 model <- glm(status~timest,binomial)
 
 
-plot(timest,status)
+plot(timest,status,col="darkgreen",ylab="The weight of trash bin", xlab = "The time stamp of collecting data after converting to the numeric")
 summary(model)
 
-xv<-seq(min(timest),max(timest),100)
+xv<-seq(min(timest),max(timest),10)
 yv<-predict(model,list(timest=xv),type="response")
 lines(xv,yv,col="red")
 # predict <- predict(model, type = 'response')
