@@ -49,7 +49,7 @@
 % The testflow support page is at:
 % http://www.michaelshell.org/tex/testflow/
  
- 
+
  
 \documentclass[conference,compsoc]{IEEEtran}
 % Some/most Computer Society conferences require the compsoc mode option,
@@ -323,6 +323,15 @@
 % (Unless specifically asked to do so by the journal or conference you plan
 % to submit to, of course. )
  
+ % If IEEEtran.cls has not been installed into the LaTeX system files,
+ % manually specify the path to it like:
+ % \documentclass[conference]{../sty/IEEEtran}
+ 
+ 
+ % Some very useful LaTeX packages include:
+ % (uncomment the ones you want to load)
+ 
+ \usepackage[letterpaper, left=1in, right=1in, bottom=1in, top=0.75in]{geometry}
  
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -347,7 +356,7 @@
     \\ \'Ecole de Technologie Sup\'erieure (ETS)
     \\Montr\'eal, Qu\'ebec, Canada.
     \\
-Email: do-dung.vu.1@ens.etmstl.ca}
+Email: do-dung.vu.1@ens.etsmtl.ca}
 \and
  
 \IEEEauthorblockN{Georges Kaddoum}
@@ -438,13 +447,14 @@ This paper presents a new method of smart waste city management to provide a cle
 \par This paper is organized as the followings: In section 2,  a new method of smart waste city management (SWCM) is explained and the structure of the algorithm is proposed. Section 3 presents the SWCM simulation model. Finally, the related concluding remarks are discussed in section 4.
 
 
-\subsection{Data acquisition} 
+
 \label{dataacquisition}
 
 \section{IoT-Based Smart waste city management model}
 
 
 In this section, we describe how to collect waste meta data associated with their status and locations. We evaluate our model with real big data in order to validate its output result.
+\subsection{Data acquisition} 
 \par To obtain a set of waste data, we use an open source database, \footnote{https://www.opendataphilly.org/dataset} which has a significant amount of geo-location information and status of each trash bin at the largest city in the Commonwealth of Pennsylvania in the United Stated named Philadelphia. Figure \ref{Philadelphia} illustrates the distribution of trash bin (green node) in Philadelphia City. We removed the content that was not useful with our scenario. For data analysis, we adopt the following five essential fields from this meta data:
 \begin{itemize}
 	\item \textit{sn}: The serial number of each trash bin
