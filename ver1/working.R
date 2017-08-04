@@ -1,5 +1,5 @@
 #set the working folder
-setwd("/home/student/Downloads/ver1")
+setwd("/home/student/WORK/Pimrc2017/Primrc2017/ver1")
 getwd()
 # install the needed packages
 
@@ -121,6 +121,36 @@ ggplot(data,aes(data$lat, data$lon))+geom_point()
 set.seed(20)
 
 mydata <- cbind(data$lat,data$lon)
+
+library(GMD)
+
+#dist.obj <- dist(mydata[,1:2])
+#hclust.obj <- hclust(dist.obj)
+#css.obj <- css.hclust(dist.obj,hclust.obj)
+#elbow.obj <- elbow.batch(css.obj)
+#print(elbow.obj)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 wss <- (nrow(mydata)-1)*sum(apply(mydata,2,var))
 for (i in 2:15) wss[i] <- sum(kmeans(mydata,
                                      centers=i)$withinss)
@@ -131,24 +161,26 @@ plot(1:15, wss, type="b", xlab="Number of Clusters",
 #k=5
 
 
-# set.seed(123)
+set.seed(123)
 # # Compute and plot wss for k = 2 to k = 15.
-# k.max <- 15
-# data <- mydata 
-# wss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )$tot.withinss})
-# wss
-# plot(1:k.max, wss,  type="b",  frame = TRUE,  xlab="Number of clusters K", ylab="Total within-clusters sum of squares (WSS)", main="Assessing the Optimal Number of Clusters with the Elbow Method",
-#      pch=20, cex=2)
+k.max <- 15
+data <- mydata 
+wss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )$tot.withinss})
+#wssplot(1:k.max, wss,  type="b",  frame = TRUE,  xlab="Number of clusters K", ylab="Total within-clusters sum of squares (WSS)", main="Assessing the Optimal Number of Clusters with the Elbow Method",
+ #   pch=20, cex=2)
 # 
 # 
-# bss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )}$betweenss)
-# tss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )}$totss)
-# ratio<-bss/tss
-# plot(1:k.max,ratio, type="b",  frame = TRUE,  xlab="Number of clusters k", ylab="The ratio of BSS/TSS", main="Assessing the Optimal Number of Clusters with the Elbow Method",
-#      pch=20, cex=2)
+bss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )}$betweenss)
+tss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )}$totss) 
+
+ratio<-bss/tss
+y<-ratio
+x<-c(1:k.max)
+plot(x,y, type="b",  frame = TRUE,  xlab="Number of clusters k", ylab="The ratio of BSS/WSS", main="Assessing the Optimal Number of Clusters with the Elbow Method",
+      pch=20, cex=2)
 
 
-
+nrow(data)
 set.seed(170)
 dataCluster <- kmeans(train[, 5:6], 5, nstart = 20)
 
