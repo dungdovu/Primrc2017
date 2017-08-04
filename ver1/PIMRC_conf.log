@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.3)  4 AUG 2017 01:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.3)  4 AUG 2017 10:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -599,7 +599,10 @@ LaTeX Warning: No positions in optional float specifier.
 File: images/elbow6.png Graphic file (type png)
  <use images/elbow6.png>
 Package pdftex.def Info: images/elbow6.png used on input line 300.
-(pdftex.def)             Requested size: 170.71652pt x 146.74936pt.
+(pdftex.def)             Requested size: 213.39566pt x 183.43896pt.
+
+
+LaTeX Warning: Reference `tab3' on page 3 undefined on input line 307.
 
 [3 <./images/Model1-2.png>]
 <images/workingcluster.png, id=36, 481.04718pt x 417.81094pt>
@@ -607,62 +610,56 @@ File: images/workingcluster.png Graphic file (type png)
 
 <use images/workingcluster.png>
 Package pdftex.def Info: images/workingcluster.png used on input line 316.
-(pdftex.def)             Requested size: 184.9429pt x 160.63138pt.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 320.
+(pdftex.def)             Requested size: 213.39566pt x 185.34831pt.
 
 <images/regression.png, id=37, 481.04718pt x 417.81094pt>
 File: images/regression.png Graphic file (type png)
 
 <use images/regression.png>
-Package pdftex.def Info: images/regression.png used on input line 354.
-(pdftex.def)             Requested size: 142.26378pt x 123.56554pt.
+Package pdftex.def Info: images/regression.png used on input line 331.
+(pdftex.def)             Requested size: 156.49014pt x 135.92082pt.
  <images/roc.png, id=38, 686.565pt x 590.205pt>
 File: images/roc.png Graphic file (type png)
 
 <use images/roc.png>
-Package pdftex.def Info: images/roc.png used on input line 359.
-(pdftex.def)             Requested size: 142.26378pt x 122.28964pt.
+Package pdftex.def Info: images/roc.png used on input line 336.
+(pdftex.def)             Requested size: 156.49014pt x 134.5195pt.
  <images/Cluster1.png, id=39, 481.04718pt x 417.81094pt>
 File: images/Cluster1.png Graphic file (type png)
 
 <use images/Cluster1.png>
-Package pdftex.def Info: images/Cluster1.png used on input line 372.
+Package pdftex.def Info: images/Cluster1.png used on input line 349.
 (pdftex.def)             Requested size: 99.58464pt x 86.49333pt.
 
 <images/Cluster2.png, id=40, 481.04718pt x 417.81094pt>
 File: images/Cluster2.png Graphic file (type png)
 
 <use images/Cluster2.png>
-Package pdftex.def Info: images/Cluster2.png used on input line 377.
+Package pdftex.def Info: images/Cluster2.png used on input line 354.
 (pdftex.def)             Requested size: 99.58464pt x 86.49333pt.
 
 <images/Cluster3.png, id=41, 481.04718pt x 417.81094pt>
 File: images/Cluster3.png Graphic file (type png)
 
 <use images/Cluster3.png>
-Package pdftex.def Info: images/Cluster3.png used on input line 384.
+Package pdftex.def Info: images/Cluster3.png used on input line 361.
 (pdftex.def)             Requested size: 99.58464pt x 86.49333pt.
 
 <images/Cluster4.png, id=42, 481.04718pt x 417.81094pt>
 File: images/Cluster4.png Graphic file (type png)
 
 <use images/Cluster4.png>
-Package pdftex.def Info: images/Cluster4.png used on input line 389.
+Package pdftex.def Info: images/Cluster4.png used on input line 366.
 (pdftex.def)             Requested size: 99.58464pt x 86.49333pt.
 
 <images/Cluster5.png, id=43, 481.04718pt x 417.81094pt>
 File: images/Cluster5.png Graphic file (type png)
 
 <use images/Cluster5.png>
-Package pdftex.def Info: images/Cluster5.png used on input line 396.
+Package pdftex.def Info: images/Cluster5.png used on input line 373.
 (pdftex.def)             Requested size: 99.58464pt x 86.49333pt.
  [4 <./images/elbow6.png> <./images/workingcluster.png (PNG copy)> <./images/re
-gression.png (PNG copy)> <./images/roc.png>] [5 <./images/Cluster1.png (PNG cop
-y)> <./images/Cluster2.png (PNG copy)> <./images/Cluster3.png (PNG copy)> <./im
-ages/Cluster4.png (PNG copy)> <./images/Cluster5.png (PNG copy)>]
+gression.png (PNG copy)> <./images/roc.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -674,9 +671,12 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6
+[5 <./images/Cluster1.png (PNG copy)> <./images/Cluster2.png (PNG copy)> <./ima
+ges/Cluster3.png (PNG copy)> <./images/Cluster4.png (PNG copy)> <./images/Clust
+er5.png (PNG copy)>] (./PIMRC_conf.aux)
 
-] (./PIMRC_conf.aux)
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -684,7 +684,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  5982 strings out of 493029
  93098 string characters out of 6136235
- 179331 words of memory out of 5000000
+ 179321 words of memory out of 5000000
  9419 multiletter control sequences out of 15000+600000
  112509 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -704,10 +704,10 @@ live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on PIMRC_conf.pdf (6 pages, 1185316 bytes).
+Output written on PIMRC_conf.pdf (5 pages, 1185635 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 103 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
