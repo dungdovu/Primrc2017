@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.3)  4 AUG 2017 10:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.3)  4 AUG 2017 21:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -310,6 +310,88 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 143.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -378,18 +460,6 @@ LaTeX Warning: Label `fig1b' multiply defined.
 LaTeX Warning: Label `sub@fig1b' multiply defined.
 
 
-LaTeX Warning: Label `fig1a' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig1a' multiply defined.
-
-
-LaTeX Warning: Label `fig1b' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig1b' multiply defined.
-
-
 LaTeX Warning: Label `fig1b' multiply defined.
 
 
@@ -401,58 +471,64 @@ LaTeX Warning: Label `fig5' multiply defined.
 )
 \openout1 = `PIMRC_conf.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 44.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <5> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <7> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <8> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <9> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <11> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <11> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <17> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <20> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <24> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 44.
 
 -- Lines per column: 55 (approximate, difference = 8.4975pt).
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -558,108 +634,120 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-<overview1.png, id=9, 818.05624pt x 649.42625pt>
+<overview1.png, id=10, 818.05624pt x 649.42625pt>
 File: overview1.png Graphic file (type png)
  <use overview1.png>
-Package pdftex.def Info: overview1.png used on input line 143.
-(pdftex.def)             Requested size: 142.26378pt x 112.9378pt.
-
-<images/overview3.png, id=11, 904.37875pt x 755.82375pt>
-File: images/overview3.png Graphic file (type png)
-
-<use images/overview3.png>
-Package pdftex.def Info: images/overview3.png used on input line 146.
-(pdftex.def)             Requested size: 142.26378pt x 118.89293pt.
+Package pdftex.def Info: overview1.png used on input line 141.
+(pdftex.def)             Requested size: 227.62204pt x 180.69852pt.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 177.
+               Default added (so using `tbp') on input line 170.
 
 <images/Model1-2.png, id=12, 680.5425pt x 410.53375pt>
 File: images/Model1-2.png Graphic file (type png)
 
 <use images/Model1-2.png>
-Package pdftex.def Info: images/Model1-2.png used on input line 209.
-(pdftex.def)             Requested size: 213.39566pt x 128.72997pt.
- [2 <./overview1.png> <./images/overview3.png>]
+Package pdftex.def Info: images/Model1-2.png used on input line 202.
+(pdftex.def)             Requested size: 227.62204pt x 137.31197pt.
+ [2 <./overview1.png>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 218.
+               Default added (so using `tbp') on input line 214.
 
 
-Overfull \hbox (21.24973pt too wide) in paragraph at lines 222--254
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `htbp') on input line 257.
+
+<images/elbow6.png, id=19, 691.58376pt x 355.3275pt>
+File: images/elbow6.png Graphic file (type png)
+ <use images/elbow6.png>
+Package pdftex.def Info: images/elbow6.png used on input line 298.
+(pdftex.def)             Requested size: 241.84842pt x 124.25804pt.
+
+Overfull \hbox (12.97092pt too wide) in paragraph at lines 298--299
  [][] 
  []
 
+Package epstopdf Info: Source file: <images/workingcluster3.eps>
+(epstopdf)                    date: 2017-08-04 13:39:20
+(epstopdf)                    size: 2164827 bytes
+(epstopdf)             Output file: <images/workingcluster3-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2017-08-04 13:39:27
+(epstopdf)                    size: 2533617 bytes
+(epstopdf)             Command: <repstopdf --outfile=images/workingcluster3-eps
+-converted-to.pdf images/workingcluster3.eps>
+(epstopdf)             \includegraphics on input line 305.
+Package epstopdf Info: Output file is already uptodate.
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `htbp') on input line 263.
+<images/workingcluster3-eps-converted-to.pdf, id=20, 276.03125pt x 226.8475pt>
+File: images/workingcluster3-eps-converted-to.pdf Graphic file (type pdf)
 
-<images/elbow6.png, id=21, 686.565pt x 590.205pt>
-File: images/elbow6.png Graphic file (type png)
- <use images/elbow6.png>
-Package pdftex.def Info: images/elbow6.png used on input line 300.
-(pdftex.def)             Requested size: 213.39566pt x 183.43896pt.
+<use images/workingcluster3-eps-converted-to.pdf>
+Package pdftex.def Info: images/workingcluster3-eps-converted-to.pdf used on in
+put line 305.
+(pdftex.def)             Requested size: 241.84842pt x 198.76451pt.
 
-
-LaTeX Warning: Reference `tab3' on page 3 undefined on input line 307.
+Overfull \hbox (12.97092pt too wide) in paragraph at lines 305--306
+ [][] 
+ []
 
 [3 <./images/Model1-2.png>]
-<images/workingcluster.png, id=36, 481.04718pt x 417.81094pt>
-File: images/workingcluster.png Graphic file (type png)
-
-<use images/workingcluster.png>
-Package pdftex.def Info: images/workingcluster.png used on input line 316.
-(pdftex.def)             Requested size: 213.39566pt x 185.34831pt.
-
-<images/regression.png, id=37, 481.04718pt x 417.81094pt>
+<images/regression.png, id=35, 496.85625pt x 406.51875pt>
 File: images/regression.png Graphic file (type png)
 
 <use images/regression.png>
-Package pdftex.def Info: images/regression.png used on input line 331.
-(pdftex.def)             Requested size: 156.49014pt x 135.92082pt.
- <images/roc.png, id=38, 686.565pt x 590.205pt>
-File: images/roc.png Graphic file (type png)
+Package pdftex.def Info: images/regression.png used on input line 321.
+(pdftex.def)             Requested size: 227.62204pt x 186.23792pt.
+ <images/AUC.png, id=36, 487.8225pt x 513.92pt>
+File: images/AUC.png Graphic file (type png)
 
-<use images/roc.png>
-Package pdftex.def Info: images/roc.png used on input line 336.
-(pdftex.def)             Requested size: 156.49014pt x 134.5195pt.
- <images/Cluster1.png, id=39, 481.04718pt x 417.81094pt>
+<use images/AUC.png>
+Package pdftex.def Info: images/AUC.png used on input line 326.
+(pdftex.def)             Requested size: 227.62204pt x 239.80154pt.
+ <images/Cluster1.png, id=37, 691.58376pt x 355.3275pt>
 File: images/Cluster1.png Graphic file (type png)
 
 <use images/Cluster1.png>
-Package pdftex.def Info: images/Cluster1.png used on input line 349.
-(pdftex.def)             Requested size: 99.58464pt x 86.49333pt.
+Package pdftex.def Info: images/Cluster1.png used on input line 337.
+(pdftex.def)             Requested size: 227.62204pt x 116.94939pt.
 
-<images/Cluster2.png, id=40, 481.04718pt x 417.81094pt>
+<images/Cluster2.png, id=38, 691.58376pt x 355.3275pt>
 File: images/Cluster2.png Graphic file (type png)
 
 <use images/Cluster2.png>
-Package pdftex.def Info: images/Cluster2.png used on input line 354.
-(pdftex.def)             Requested size: 99.58464pt x 86.49333pt.
+Package pdftex.def Info: images/Cluster2.png used on input line 342.
+(pdftex.def)             Requested size: 227.62204pt x 116.94939pt.
 
-<images/Cluster3.png, id=41, 481.04718pt x 417.81094pt>
+<images/Cluster3.png, id=39, 691.58376pt x 355.3275pt>
 File: images/Cluster3.png Graphic file (type png)
 
 <use images/Cluster3.png>
-Package pdftex.def Info: images/Cluster3.png used on input line 361.
-(pdftex.def)             Requested size: 99.58464pt x 86.49333pt.
+Package pdftex.def Info: images/Cluster3.png used on input line 349.
+(pdftex.def)             Requested size: 227.62204pt x 116.94939pt.
 
-<images/Cluster4.png, id=42, 481.04718pt x 417.81094pt>
+<images/Cluster4.png, id=40, 691.58376pt x 355.3275pt>
 File: images/Cluster4.png Graphic file (type png)
 
 <use images/Cluster4.png>
-Package pdftex.def Info: images/Cluster4.png used on input line 366.
-(pdftex.def)             Requested size: 99.58464pt x 86.49333pt.
+Package pdftex.def Info: images/Cluster4.png used on input line 354.
+(pdftex.def)             Requested size: 227.62204pt x 116.94939pt.
 
-<images/Cluster5.png, id=43, 481.04718pt x 417.81094pt>
+<images/Cluster5.png, id=41, 691.58376pt x 355.3275pt>
 File: images/Cluster5.png Graphic file (type png)
 
 <use images/Cluster5.png>
-Package pdftex.def Info: images/Cluster5.png used on input line 373.
-(pdftex.def)             Requested size: 99.58464pt x 86.49333pt.
- [4 <./images/elbow6.png> <./images/workingcluster.png (PNG copy)> <./images/re
-gression.png (PNG copy)> <./images/roc.png>]
+Package pdftex.def Info: images/Cluster5.png used on input line 361.
+(pdftex.def)             Requested size: 227.62204pt x 116.94939pt.
+
+
+LaTeX Warning: Float too large for page by 12.84947pt on input line 368.
+
+[4 <./images/elbow6.png> <./images/workingcluster3-eps-converted-to.pdf> <./ima
+ges/regression.png> <./images/AUC.png>] [5 <./images/Cluster1.png> <./images/Cl
+uster2.png> <./images/Cluster3.png> <./images/Cluster4.png> <./images/Cluster5.
+png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -671,24 +759,21 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[5 <./images/Cluster1.png (PNG copy)> <./images/Cluster2.png (PNG copy)> <./ima
-ges/Cluster3.png (PNG copy)> <./images/Cluster4.png (PNG copy)> <./images/Clust
-er5.png (PNG copy)>] (./PIMRC_conf.aux)
+[6
 
-LaTeX Warning: There were undefined references.
-
+] (./PIMRC_conf.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5982 strings out of 493029
- 93098 string characters out of 6136235
- 179321 words of memory out of 5000000
- 9419 multiletter control sequences out of 15000+600000
+ 6448 strings out of 493029
+ 100166 string characters out of 6136235
+ 182775 words of memory out of 5000000
+ 9865 multiletter control sequences out of 15000+600000
  112509 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,17n,46p,2133b,669s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,16n,40p,2175b,669s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -704,10 +789,10 @@ live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on PIMRC_conf.pdf (5 pages, 1185635 bytes).
+Output written on PIMRC_conf.pdf (6 pages, 3253351 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 118 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

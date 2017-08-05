@@ -164,20 +164,20 @@ plot(1:15, wss, type="b", xlab="Number of Clusters",
 set.seed(123)
 # # Compute and plot wss for k = 2 to k = 15.
 k.max <- 15
-data <- mydata 
-wss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )$tot.withinss})
+#data <- mydata 
+#wss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )$tot.withinss})
 #wssplot(1:k.max, wss,  type="b",  frame = TRUE,  xlab="Number of clusters K", ylab="Total within-clusters sum of squares (WSS)", main="Assessing the Optimal Number of Clusters with the Elbow Method",
  #   pch=20, cex=2)
 # 
 # 
-bss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )}$betweenss)
-tss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )}$totss) 
+#bss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )}$betweenss)
+#tss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )}$totss) 
 
-ratio<-bss/tss
-y<-ratio
-x<-c(1:k.max)
-plot(x,y, type="b",  frame = TRUE,  xlab="Number of clusters k", ylab="The ratio of BSS/WSS", main="Assessing the Optimal Number of Clusters with the Elbow Method",
-      pch=20, cex=2)
+#ratio<-bss/tss
+#y<-ratio
+#x<-c(1:k.max)
+#plot(x,y, type="b",  frame = TRUE,  xlab="Number of clusters k", ylab="The ratio of BSS/WSS", main="Assessing the Optimal Number of Clusters with the Elbow Method",
+#      pch=20, cex=2)
 
 
 nrow(data)
